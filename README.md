@@ -12,5 +12,5 @@ INSTALLATION:
     vii - Lancer l'application avec la commande node index.js
     
     
-   [[https://raw.githubusercontent.com/components-upnp/upnp-potentiometer/tree/master/upnp-potentiometre/Circuit.png | alt=Circuit]]
+   [[https://github.com/components-upnp/upnp_potentiometer/blob/master/upnp_potentiometre/Circuit.png | alt=Circuit]]
   
