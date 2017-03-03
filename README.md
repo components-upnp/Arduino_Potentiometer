@@ -11,6 +11,6 @@ INSTALLATION:
     vi - Depuis l'IDE Arduinon, lancer le sketch File > Examples > Firmata > StandardFirmata
     vii - Lancer l'application avec la commande node index.js
     
-    
-   [[https://github.com/components-upnp/upnp_potentiometer/blob/master/upnp_potentiometre/Circuit.png | alt=Circuit]]
-  
+    <br>
+        <img src="https://github.com/components-upnp/upnp_potentiometer/blob/master/upnp_potentiometre/Circuit.png" />
+    </br>
