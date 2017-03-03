@@ -1,0 +1,19 @@
+{
+  "name": "potentiometre",
+  "version": "1.0.0",
+  "description": "potentiometre upnp basée sur une carte Arduino",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/components-upnp/upnp_potentiometer.git"
+  },
+  "author": "Creative Technology",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/components-upnp/upnp_potentiometer/issues"
+  },
+  "homepage": "https://github.com/components-upnp/upnp_potentiometer#readme"
+}
