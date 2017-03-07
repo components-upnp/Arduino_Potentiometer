@@ -48,10 +48,7 @@ board.on("ready", function() {
 
   // "data" get the current reading from the potentiometer
   potentiometer.on("data", function() {
-  	// initialize the Target State Variable with 0
-	//service.set("Target",0);
-  //  console.log(this.value, this.raw);
-		//service.set("SetTarget",this.value);
+  
 
 		newValue = Math.trunc((this.value * 100)/1023);
 		service.set("Status",newValue);

@@ -17,7 +17,7 @@ var device = peer.createDevice({
 	    uuid: "6bd5eabd-b7c8-4f7b-ae6c-a30ccdeb5988",
 	    productName: "potentiometer",
 	    productVersion: "0.0.1",
-	    domain: "schemas-upnp-org",
+	    domain: "schemas-upnp-org",  	//Error when domain changed
 	    type: "upnp_potentiometer",
 	    version: "1",
 	    friendlyName: "POTO",
