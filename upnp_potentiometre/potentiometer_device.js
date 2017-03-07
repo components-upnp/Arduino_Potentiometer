@@ -1,8 +1,6 @@
-var peer;
-
 
 function createServerPlusDevice(upnp, server, device) {
-	peer = upnp.createPeer({
+	var peer = upnp.createPeer({
     prefix: "/upnp",
     server: server
 }).on("ready",function(peer){

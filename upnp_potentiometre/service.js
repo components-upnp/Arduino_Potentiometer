@@ -3,7 +3,7 @@ function createService(device) {
     // create a SwitchPower service in the BinaryLight device as specified here http://upnp.org/specs/ha/UPnP-ha-SwitchPower-v1-Service.pdf
     var service = device.createService({
         domain: "schemas-upnp-org",
-        type: "potentiometer",
+        type: "SwitchPower",
         version: "1",
         // Service Implementation
         implementation: {
@@ -14,13 +14,15 @@ function createService(device) {
             SetTarget: function(inputs){
                 console.log("LOL");
                 // set the new value of the state variable Target
-                this.set("Target", inputs.NewTargetValue);
-                this.set("Status", inputs.NewTargetValue);
+                service.set("Target", inputs.NewTargetValue);
+                service.set("Status", inputs.NewTargetValue);
+
                 // notify state change of the state variable to all subscribers
 
-                this.notify("Status");
-                this.notify("Target");
-                this.get("Target") == "1"? console.log("Light is ON"):console.log("Light is OFF");
+
+                service.notify("Target");
+                service.notify("Status");
+                //this.get("Target") == "1"? console.log("Light is ON"):console.log("Light is OFF");
             },
             GetStatus: function(inputs){
                 // the result is the value of the state variable Target

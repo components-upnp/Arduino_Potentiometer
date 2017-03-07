@@ -19,16 +19,15 @@ server.listen(PORT);
 
 
 // Create a UPnP Peer.
-// Create a BinaryLight device as specified in UPnP http://upnp.org/specs/ha/UPnP-ha-BinaryLight-v1-Device.pdf.
-// Please refer for device configuration parameters to the UPnP device architecture.
+
 var device = createServerPlusDevice(upnp, server, device);
 
 
-// create a SwitchPower service in the BinaryLigt device as specified here http://upnp.org/specs/ha/UPnP-ha-SwitchPower-v1-Service.pdf
 var service = createService(device);
 
 var oldValue = 0;
 var newValue = 0;
+var timeOut = true;
 
 
 
@@ -55,15 +54,21 @@ board.on("ready", function() {
 		//service.set("SetTarget",this.value);
 
 		newValue = Math.trunc((this.value * 100)/1023);
+		service.set("Status",newValue);
+		service.set("Target",newValue);
 
-
-		if (newValue != oldValue) {
+		if ((newValue != oldValue) && timeOut) {
 			console.log("Nouvelle valeur" + newValue);
 			oldValue = newValue;
-			service.set("Status",newValue);
-			service.set("Target",newValue);
+
+			//service.notify("Target");
 			service.notify("Status");
+			timeOut = false;
+			setTimeout(function () {
+				timeOut = true;
+			}, 1500);
 		}
+
 
   });
 });
