@@ -15,3 +15,7 @@ Ici, lien vers le schéma du circuit:
 https://github.com/components-upnp/upnp_potentiometer/blob/master/upnp_potentiometre/Circuit.png?raw=true
 
 
+
+Cas d'utilisation du potentiomètre UpNP:
+    -Gestion de la luminosité dans une salle.
+    -Gestion du niveau sonore d'un haut parleur connecté en UpNP.
