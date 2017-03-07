@@ -3,7 +3,7 @@ function createService(device) {
     // create a SwitchPower service in the BinaryLight device as specified here http://upnp.org/specs/ha/UPnP-ha-SwitchPower-v1-Service.pdf
     var service = device.createService({
         domain: "schemas-upnp-org",
-        type: "SwitchPower",
+        type: "potentiometer",
         version: "1",
         // Service Implementation
         implementation: {
@@ -12,9 +12,13 @@ function createService(device) {
                 return {RetTargetValue: this.get("Target")}
             },
             SetTarget: function(inputs){
+                console.log("LOL");
                 // set the new value of the state variable Target
-                this.set("Target", inputs.NewTargetValue); 
+                this.set("Target", inputs.NewTargetValue);
+                this.set("Status", inputs.NewTargetValue);
                 // notify state change of the state variable to all subscribers
+
+                this.notify("Status");
                 this.notify("Target");
                 this.get("Target") == "1"? console.log("Light is ON"):console.log("Light is OFF");
             },
@@ -23,7 +27,7 @@ function createService(device) {
                 return {ResultStatus: this.get("Target")}
             },
         },
-        // Service Description. this will be converted to XML 
+        // Service Description. this will be converted to XML
         description: {
             actions: {
                 GetTarget: {
@@ -42,13 +46,26 @@ function createService(device) {
                     }
                 }
             },
-            // declare all state variables: key is the name of the variable and value is the type of the variable. 
-            // type can be JSON object in this form {type: "boolean"}. 
+            // declare all state variables: key is the name of the variable and value is the type of the variable.
+            // type can be JSON object in this form {type: "boolean"}.
             variables: {
-                Target: "int", 
-                Status: "int"
+                Target: {
+                  type: "string",
+                  event: true,
+                  multicast: true
+                },
+                Status: {
+                  type: "string",
+                  event: true,
+                  multicast: true
+                }
             }
         }
     });
+    service.set("Target",0);
+    service.set("Status",0);
+
+
+
 return service;
 }
