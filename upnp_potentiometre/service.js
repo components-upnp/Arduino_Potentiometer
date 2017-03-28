@@ -2,8 +2,8 @@ function createService(device) {
 
     // create a Potentiometer service in the Potentiometer device
     var service = device.createService({
-        domain: "schemas-upnp-org",
-        type: "SwitchPower",      //Error when doamin and service type are changed
+        domain: "upnp-org",
+        type: "PotoService",      //Error when doamin and service type are changed
         version: "1",
         // Service Implementation
         implementation: {
