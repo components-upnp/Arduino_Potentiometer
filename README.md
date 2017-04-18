@@ -24,7 +24,7 @@ Ici, schéma du circuit:
 
 Schéma du composant avec son interface:
 
-![alt tag](https://github.com/components-upnp/upnp_potentiometer/blob/master/upnp_potentiometre/upnp_potentiometer_diagram.png
+![alt tag](https://github.com/components-upnp/upnp_potentiometer/blob/master/potentiometer.png
 )
 
 L'interface PotoService offre:
